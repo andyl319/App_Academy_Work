@@ -37,6 +37,11 @@ class PolyTreeNode
     end
   end
 
+  def get_root
+    return self if @parent.nil?
+    @parent.get_root
+  end
+
   def dfs(target_val)
     return self if @value == target_val
     @children.each do |child|
@@ -61,10 +66,10 @@ class PolyTreeNode
 end
 
 if __FILE__ == $PROGRAM_NAME
-  n = PolyTreeNode.new(1)
-  n2 = PolyTreeNode.new(2)
-  n2.parent = n
-  n3 = PolyTreeNode.new(3)
-  n3.parent = n
-  p n.bfs(3)
+  # n = PolyTreeNode.new(1)
+  # n2 = PolyTreeNode.new(2)
+  # n2.parent = n
+  # n3 = PolyTreeNode.new(3)
+  # n3.parent = n
+  # p n3.get_root.value
 end
