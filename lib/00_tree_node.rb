@@ -37,9 +37,9 @@ class PolyTreeNode
     end
   end
 
-  def get_root
-    return self if @parent.nil?
-    @parent.get_root
+  def get_lineage
+    return [self.value] if @parent.nil?
+    @parent.get_lineage << self.value
   end
 
   def dfs(target_val)

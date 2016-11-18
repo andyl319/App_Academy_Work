@@ -8,7 +8,10 @@ class KnightPathFinder
     @visited_positions = [pos]
   end
 
-  def find_path
+  def find_path(end_pos)
+    root = build_move_tree
+    target_node = root.dfs(end_pos)
+    target_node.get_lineage
 
   end
 
@@ -25,7 +28,7 @@ class KnightPathFinder
         queue << this_child_node
       end
     end
-    root 
+    root
   end
 
   def new_move_positions(pos)
@@ -48,7 +51,7 @@ end
 if __FILE__ == $PROGRAM_NAME
 
   kpf = KnightPathFinder.new([0,0])
-  p root = kpf.build_move_tree
+  p kpf.find_path([7,7])
   # p a.get_root
 
 
